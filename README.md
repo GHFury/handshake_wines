@@ -1,7 +1,7 @@
 # Handshake Wines — Website Redesign
 
-A pixel-perfect design mock for the Handshake Wines website revamp, built with Vite + React.
-Inspired by the visual language of Shafer Vineyards, adapted to Handshake's brand and scope.
+A premium website redesign for Handshake Wines, built with Vite + React.
+Crafted to reflect the brand's identity: curated, terroir-driven, and built on relationships.
 
 ---
 
@@ -133,4 +133,4 @@ The `/dist` folder is fully static and can be deployed to:
 
 ---
 
-*Design mock prepared for Handshake Wines, LLC. — hello@handshakewines.com*
+*Handshake Wines, LLC. — hello@handshakewines.com*

@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Raleway:wght@200;300;400;500;600;700&display=swap');
+
+/* ─────────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────
+   DESIGN TOKENS
+───────────────────────────────────────────── */
+:root {
+  --bg:       #0b0906;
+  --bg2:      #100d09;
+  --bg3:      #0e0b07;
+  --bg-foot:  #070503;
+  --cream:    #f0e6d3;
+  --muted:    #8a7c6e;
+  --gold:     #c4a254;
+  --gold-lt:  #d4b87a;
+  --white:    #faf6f0;
+  --err:      #c47254;
+
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans:  'Raleway', sans-serif;
+}
+
+/* ─────────────────────────────────────────────
+   SHARED ANIMATIONS
+───────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes tickDrop {
+  0%   { transform: scaleY(0); transform-origin: top;    opacity: 1; }
+  49%  { transform: scaleY(1); transform-origin: top;    opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+/* ─────────────────────────────────────────────
+   SCROLL REVEAL UTILITY
+───────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────
+   SHARED BUTTONS
+───────────────────────────────────────────── */
+.btn-outline {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--cream);
+  border: 1px solid rgba(196, 162, 84, 0.55);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+.btn-outline:hover {
+  background: var(--gold);
+  color: var(--bg);
+  border-color: var(--gold);
+}
+
+/* ─────────────────────────────────────────────
+   SHARED TYPOGRAPHY HELPERS
+───────────────────────────────────────────── */
+.section-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+
+.section-h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 2.9rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 1.75rem;
+}
+
+.section-h2 em {
+  font-style: italic;
+}
+
+.section-p {
+  font-family: var(--font-sans);
+  font-size: 0.83rem;
+  font-weight: 300;
+  line-height: 1.95;
+  color: var(--muted);
+  margin-bottom: 1.1rem;
+}
+
+.text-cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(196, 162, 84, 0.35);
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+.text-cta:hover {
+  border-color: var(--gold);
+}
+
+/* ─────────────────────────────────────────────
+   PAGE HERO (shared across About & Contact)
+───────────────────────────────────────────── */
+.page-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.page-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transform: scale(1.06);
+  transition: transform 9s ease;
+}
+.page-hero-img.loaded { transform: scale(1); }
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(6, 4, 2, 0.97) 0%,
+    rgba(6, 4, 2, 0.45) 50%,
+    rgba(6, 4, 2, 0.25) 100%
+  );
+}
+
+.page-hero-content {
+  position: relative;
+  padding: 0 4rem 5rem;
+  max-width: 760px;
+  animation: fadeUp 1.2s ease 0.2s both;
+}
+
+.page-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.1rem;
+}
+
+.page-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--white);
+}
+.page-h1 em { font-style: italic; }
+
+.page-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin-top: 1.75rem;
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER (shared)
+───────────────────────────────────────────── */
+.footer {
+  background: var(--bg-foot);
+  padding: 5.5rem 3.5rem 3rem;
+  border-top: 1px solid rgba(196, 162, 84, 0.18);
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.4fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.f-logo {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 300;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.f-tagline {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.f-col-title {
+  font-family: var(--font-sans);
+  font-size: 0.53rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.f-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.f-links a {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.f-links a:hover { color: var(--gold); }
+
+.f-nl-text {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+.nl-form { display: flex; }
+.nl-input {
+  flex: 1;
+  padding: 0.78rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-right: none;
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  outline: none;
+}
+.nl-input::placeholder { color: var(--muted); }
+.nl-input:focus { border-color: rgba(196, 162, 84, 0.45); }
+.nl-btn {
+  padding: 0.78rem 1.2rem;
+  background: var(--gold);
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg);
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+.nl-btn:hover { background: var(--gold-lt); }
+.nl-thanks {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.f-copy {
+  font-family: var(--font-sans);
+  font-size: 0.63rem;
+  font-weight: 300;
+  color: rgba(138, 124, 110, 0.45);
+  letter-spacing: 0.1em;
+}
+.f-email {
+  font-family: var(--font-sans);
+  font-size: 0.63rem;
+  color: rgba(138, 124, 110, 0.55);
+}
+.f-email a {
+  color: var(--gold-lt);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.f-email a:hover { color: var(--gold); }
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE SHARED RULES
+───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .page-hero-content { padding: 0 1.75rem 3.5rem; }
+  .footer { padding: 4rem 1.75rem 2.5rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+}

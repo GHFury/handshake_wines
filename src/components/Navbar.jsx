@@ -14,14 +14,15 @@ export default function Navbar() {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.left}>
-        <NavLink to="/"        className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ""}`}>Home</NavLink>
-        <NavLink to="/about"   className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ""}`}>About</NavLink>
+        <NavLink to="/theme-a"        className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ""}`}>Home</NavLink>
+        <NavLink to="/theme-a/about"   className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ""}`}>About</NavLink>
+        <NavLink to="/theme-a/team"    className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ""}`}>Our Team</NavLink>
       </div>
 
-      <NavLink to="/" className={styles.logo}>Handshake Wines</NavLink>
+      <NavLink to="/theme-a" className={styles.logo}>Handshake Wines</NavLink>
 
       <div className={styles.right}>
-        <NavLink to="/contact" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ""}`}>Contact</NavLink>
+        <NavLink to="/theme-a/contact" className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ""}`}>Contact</NavLink>
       </div>
     </nav>
   );

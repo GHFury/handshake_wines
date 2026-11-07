@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import styles from "./AboutPage.module.css";
+import { THEME_A } from "../images.js";
 
 const pillars = [
   {
@@ -69,7 +70,7 @@ export default function AboutPage() {
       {/* ── PAGE HERO ── */}
       <section className={styles.pageHero}>
         <img
-          src="https://images.unsplash.com/photo-1566903451935-7e8714f38f12?auto=format&fit=crop&w=1920&q=80"
+          src={THEME_A.aboutHero}
           className={`page-hero-img${imgLoaded ? " loaded" : ""}`}
           onLoad={() => setImgLoaded(true)}
           alt="Wine estate vineyard"
@@ -110,7 +111,7 @@ export default function AboutPage() {
         <div className={styles.originGrid}>
           <div className={styles.originImgCol}>
             <img
-              src="https://images.unsplash.com/photo-1543218024-57a70143c369?auto=format&fit=crop&w=900&q=80"
+              src={THEME_A.aboutOrigin}
               className={styles.originImg}
               alt="Winery barrels"
             />
@@ -129,7 +130,7 @@ export default function AboutPage() {
               curated network built on trust, transparency, and a shared love for the craft.
               Our name says it all: every partnership begins with a handshake.
             </p>
-            <Link to="/contact" className="text-cta">Connect With Us</Link>
+            <Link to="/theme-a/contact" className="text-cta">Connect With Us</Link>
           </div>
         </div>
       </section>
@@ -200,7 +201,7 @@ export default function AboutPage() {
           Whether you're a producer looking for a thoughtful partner or a retailer<br />
           seeking wines with a story — we'd love to hear from you.
         </p>
-        <Link to="/contact" className="btn-outline">Get In Touch</Link>
+        <Link to="/theme-a/contact" className="btn-outline">Get In Touch</Link>
       </section>
 
       <Footer />

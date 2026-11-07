@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --b-bg:      #0a0e14;
+  --b-bg2:     #0e1420;
+  --b-bg3:     #080c12;
+  --b-foot:    #060810;
+  --b-white:   #e8eef2;
+  --b-cream:   #c8d4dc;
+  --b-muted:   #6a8090;
+  --b-blue:    #7aadcf;
+  --b-blue-lt: #92bdd9;
+  --b-navy:    #1e3a4f;
+  --b-font-serif: 'Libre Baskerville', serif;
+  --b-font-sans:  'Montserrat', sans-serif;
+}
+
+body { background: var(--b-bg); color: var(--b-white); font-family: var(--b-font-sans); overflow-x: hidden; }
+
+@keyframes bFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bFadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+
+.b-reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.b-reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── SHARED TYPOGRAPHY ─────────────────────── */
+.b-eyebrow {
+  font-family: var(--b-font-sans); font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.35em; text-transform: uppercase; color: var(--b-blue);
+  margin-bottom: 1rem;
+}
+.b-h2 {
+  font-family: var(--b-font-serif); font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 400; line-height: 1.25; color: var(--b-white); margin-bottom: 1.5rem;
+}
+.b-h2 em { font-style: italic; }
+.b-p {
+  font-family: var(--b-font-sans); font-size: 0.8rem; font-weight: 300;
+  line-height: 1.9; color: var(--b-muted); margin-bottom: 1rem;
+}
+.b-text-cta {
+  font-family: var(--b-font-sans); font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--b-blue);
+  text-decoration: none; border-bottom: 1px solid rgba(122,173,207,0.35);
+  padding-bottom: 0.25rem; transition: border-color 0.3s;
+  display: inline-block; margin-top: 0.5rem;
+}
+.b-text-cta:hover { border-color: var(--b-blue); }
+
+.b-btn {
+  display: inline-block; padding: 0.85rem 2.25rem; background: transparent;
+  border: 1px solid rgba(122,173,207,0.5); color: var(--b-white);
+  font-family: var(--b-font-sans); font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none;
+  cursor: pointer; transition: all 0.3s ease;
+}
+.b-btn:hover { background: var(--b-blue); color: var(--b-bg); border-color: var(--b-blue); }
+
+/* ── NAVBAR ─────────────────────────────────── */
+.b-navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 3.5rem;
+  background: rgba(8,12,18,0.72);
+  backdrop-filter: blur(10px);
+  transition: background 0.4s, padding 0.35s, border-color 0.4s;
+  border-bottom: 1px solid rgba(122,173,207,0.1);
+}
+.b-navbar.scrolled {
+  background: rgba(8,12,18,0.97);
+  padding: 1rem 3.5rem;
+  border-bottom-color: rgba(122,173,207,0.18);
+}
+.b-nav-left { display: flex; align-items: center; gap: 0.75rem; }
+.b-logo-text {
+  font-family: var(--b-font-serif); font-size: 1.1rem; font-weight: 400;
+  color: var(--b-white); text-decoration: none; letter-spacing: 0.05em;
+}
+.b-logo-rule { width: 1px; height: 22px; background: rgba(122,173,207,0.3); margin: 0 0.5rem; }
+.b-logo-tag {
+  font-family: var(--b-font-sans); font-size: 0.5rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--b-blue);
+}
+.b-nav-right { display: flex; align-items: center; gap: 2rem; }
+.b-nav-link {
+  font-family: var(--b-font-sans); font-size: 0.55rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase; color: rgba(200,212,220,0.65);
+  text-decoration: none; transition: color 0.3s;
+}
+.b-nav-link:hover, .b-nav-link.active { color: var(--b-blue); }
+
+/* ── PAGE HERO ─────────────────────────────── */
+.b-page-hero {
+  position: relative; display: flex; align-items: flex-end; overflow: hidden;
+}
+.b-hero-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  transform: scale(1.06); transition: transform 9s ease;
+}
+.b-hero-img.loaded { transform: scale(1); }
+.b-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(8,12,18,0.97) 0%, rgba(8,12,18,0.5) 55%, rgba(8,12,18,0.2) 100%);
+}
+.b-hero-content {
+  position: relative; padding: 0 4rem 5rem; max-width: 760px;
+  animation: bFadeUp 1.2s ease 0.2s both;
+}
+.b-hero-tag {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  font-family: var(--b-font-sans); font-size: 0.52rem; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--b-blue);
+  margin-bottom: 1.25rem;
+}
+.b-hero-tag::before { content: ''; width: 28px; height: 1px; background: var(--b-blue); }
+.b-hero-h1 {
+  font-family: var(--b-font-serif); font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 400; line-height: 1.12; color: var(--b-white);
+}
+.b-hero-h1 em { font-style: italic; }
+.b-hero-rule { width: 48px; height: 2px; background: var(--b-blue); margin-top: 1.75rem; }
+
+/* ── FOOTER ─────────────────────────────────── */
+.b-footer {
+  background: var(--b-foot); padding: 5rem 3.5rem 3rem;
+  border-top: 1px solid rgba(122,173,207,0.15);
+}
+.b-footer-inner { max-width: 1200px; margin: 0 auto; }
+.b-footer-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr 1.4fr;
+  gap: 4rem; margin-bottom: 4rem; padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.b-f-logo { font-family: var(--b-font-serif); font-size: 1.2rem; color: var(--b-white); margin-bottom: 0.75rem; }
+.b-f-tagline { font-family: var(--b-font-serif); font-style: italic; font-size: 0.9rem; color: var(--b-muted); line-height: 1.65; }
+.b-f-col-title {
+  font-family: var(--b-font-sans); font-size: 0.52rem; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--b-blue); margin-bottom: 1.5rem;
+}
+.b-f-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+.b-f-links a { font-family: var(--b-font-sans); font-size: 0.75rem; font-weight: 300; color: var(--b-muted); text-decoration: none; transition: color 0.3s; }
+.b-f-links a:hover { color: var(--b-blue); }
+.b-nl-form { display: flex; }
+.b-nl-input {
+  flex: 1; padding: 0.75rem 1rem; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1); border-right: none;
+  color: var(--b-white); font-family: var(--b-font-sans); font-size: 0.7rem; outline: none;
+}
+.b-nl-input::placeholder { color: var(--b-muted); }
+.b-nl-input:focus { border-color: rgba(122,173,207,0.4); }
+.b-nl-btn {
+  padding: 0.75rem 1.1rem; background: var(--b-blue); border: none;
+  font-family: var(--b-font-sans); font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--b-bg); cursor: pointer; transition: background 0.3s;
+}
+.b-nl-btn:hover { background: var(--b-blue-lt); }
+.b-nl-thanks { font-family: var(--b-font-serif); font-style: italic; color: var(--b-blue); font-size: 1rem; }
+.b-footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.b-f-copy { font-family: var(--b-font-sans); font-size: 0.6rem; font-weight: 300; color: rgba(106,128,144,0.45); letter-spacing: 0.1em; }
+.b-f-email { font-family: var(--b-font-sans); font-size: 0.6rem; color: rgba(106,128,144,0.55); }
+.b-f-email a { color: var(--b-blue-lt); text-decoration: none; transition: color 0.3s; }
+.b-f-email a:hover { color: var(--b-blue); }
+
+/* ── BACK LINK ──────────────────────────────── */
+.b-back {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+  font-family: var(--b-font-sans); font-size: 0.52rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--b-bg); background: var(--b-blue);
+  padding: 0.65rem 1.25rem; text-decoration: none;
+  transition: background 0.3s;
+}
+.b-back:hover { background: var(--b-blue-lt); }
+
+/* ── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 900px) {
+  .b-navbar, .b-navbar.scrolled { padding: 1.25rem 1.75rem; }
+  .b-hero-content { padding: 0 1.75rem 3.5rem; }
+  .b-footer { padding: 4rem 1.75rem 2.5rem; }
+  .b-footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .b-footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+}

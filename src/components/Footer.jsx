@@ -11,6 +11,19 @@ export default function Footer() {
   };
 
   return (
+    <>
+      {/* Fixed back-to-selector button — same pattern as Theme B & C */}
+      <Link to="/" style={{
+        position: "fixed", bottom: "2rem", right: "2rem", zIndex: 300,
+        fontFamily: "var(--font-sans)", fontSize: "0.52rem", fontWeight: 500,
+        letterSpacing: "0.2em", textTransform: "uppercase",
+        color: "var(--bg)", background: "var(--gold)",
+        padding: "0.65rem 1.25rem", textDecoration: "none",
+        transition: "background 0.3s",
+      }}
+        onMouseEnter={(e) => e.currentTarget.style.background = "var(--gold-lt)"}
+        onMouseLeave={(e) => e.currentTarget.style.background = "var(--gold)"}
+      >← All Themes</Link>
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-grid">
@@ -25,9 +38,10 @@ export default function Footer() {
           <div>
             <p className="f-col-title">Navigate</p>
             <ul className="f-links">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/theme-a">Home</Link></li>
+              <li><Link to="/theme-a/about">About</Link></li>
+              <li><Link to="/theme-a/team">Our Team</Link></li>
+              <li><Link to="/theme-a/contact">Contact</Link></li>
             </ul>
           </div>
 
@@ -63,5 +77,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

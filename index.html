@@ -3,12 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Handshake Wines</title>
-    <meta name="description" content="Curating rare, terroir-driven wines and placing them in the hands of boutique retailers who understand the story." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Handshake Wines — Specialty Wine Distributor</title>
+    <meta name="description" content="Handshake Wines is a specialty wine distributor partnering with boutique, family-owned Northern California wineries and placing their wines with retailers and restaurants." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Handshake Wines — Specialty Wine Distributor" />
+    <meta property="og:description" content="Boutique, family-owned Northern California wineries. Bottles with meaning, worth discovering." />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- STAGING ONLY: keeps this preview out of Google while the original site is live.
+         DELETE THIS LINE AT GO-LIVE. -->
+    <meta name="robots" content="noindex, nofollow" />
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Netlify Forms: these hidden forms let Netlify detect the forms at deploy time.
+         The real forms live in ContactPage.jsx and Footer.jsx and POST here by name.
+         If you add/rename a field in the React form, add/rename it here too. -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input name="bot-field" />
+      <input name="firstName" />
+      <input name="lastName" />
+      <input name="email" />
+      <input name="company" />
+      <input name="role" />
+      <textarea name="message"></textarea>
+    </form>
+    <form name="newsletter" data-netlify="true" hidden>
+      <input name="email" />
+    </form>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

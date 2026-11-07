@@ -1,136 +1,70 @@
-# Handshake Wines — Website Redesign
+# Handshake Wines — Website
 
-A premium website redesign for Handshake Wines, built with Vite + React.
-Crafted to reflect the brand's identity: curated, terroir-driven, and built on relationships.
-
----
+Marketing site for Handshake Wines, a specialty wine distributor partnering with boutique,
+family-owned Northern California wineries. Built with Vite + React.
 
 ## Stack
 
 - **Vite** — build tool & dev server
-- **React 18** — UI framework
-- **React Router v6** — client-side routing
-- **CSS Modules** — scoped per-component styles
-- **Google Fonts** — Cormorant Garamond + Raleway
+- **React 18** + **React Router v6** — UI and client-side routing
+- **Plain CSS** (`src/themes/vinifera/theme.css`) — design tokens and shared styles
+- **Netlify** — hosting and form handling
+- **Google Fonts** — Playfair Display + Lato
 
----
-
-## Project Structure
+## Project structure
 
 ```
 handshake-wines/
-├── index.html
-├── package.json
-├── vite.config.js
-├── README.md
+├── index.html                  # page metadata + hidden Netlify form definitions
+├── public/
+│   ├── _redirects              # SPA fallback so /about etc. work on refresh
+│   ├── favicon.png, apple-touch-icon.png
+│   ├── images/                 # logo.png, thomas.jpg, harvest-poster.jpg
+│   └── videos/harvest.mp4      # homepage hero video
 └── src/
-    ├── main.jsx              # App entry point
-    ├── App.jsx               # Router + AgeGate state
-    ├── styles/
-    │   └── theme.css         # Global tokens, resets, shared utilities
-    ├── components/
-    │   ├── AgeGate.jsx       # Age verification modal
-    │   ├── AgeGate.module.css
-    │   ├── Navbar.jsx        # Center-split nav, scroll-aware
-    │   ├── Navbar.module.css
-    │   └── Footer.jsx        # Shared footer w/ newsletter
-    └── pages/
-        ├── HomePage.jsx      # Hero + Who We Are + Our Story
-        ├── HomePage.module.css
-        ├── AboutPage.jsx     # Intro + Origin + Pillars + Process + CTA
-        ├── AboutPage.module.css
-        ├── ContactPage.jsx   # Info panel + Contact form + Stats band
-        └── ContactPage.module.css
+    ├── main.jsx, App.jsx       # entry + routes + age gate
+    ├── images.js               # stock image URLs (placeholders)
+    ├── styles/theme.css        # global tokens used by the age gate
+    ├── components/             # AgeGate, VideoHero
+    └── themes/vinifera/        # Navbar, Footer, theme.css and the 5 pages
+                                #   Home, About, Our Producers, Our Team, Contact
 ```
 
----
-
-## Getting Started
+## Run locally
 
 ```bash
-# 1. Install dependencies
 npm install
-
-# 2. Start the dev server
-npm run dev
-
-# 3. Open in browser
-http://localhost:5173
+npm run dev        # http://localhost:5173
+npm run build      # production build into /dist
+npm run preview    # serve the production build locally
 ```
 
----
+## Deploy (Netlify)
 
-## Design System
+1. Push to GitHub.
+2. Netlify → **Add new site → Import from Git** → pick this repo.
+   Build command `npm run build`, publish directory `dist` (auto-detected).
+3. After the first deploy, open **Forms** in the Netlify dashboard — `contact` and `newsletter`
+   should be listed. Under **Form notifications**, add an email notification to the address that
+   should receive leads.
+4. Submit the contact form once on the live URL to confirm the email arrives.
+   (Locally, `npm run dev` just shows the success message — nothing is sent.)
 
-All design tokens live in `src/styles/theme.css` and are available globally as CSS custom properties:
+### Going live
 
-| Token       | Value     | Usage                        |
-|-------------|-----------|------------------------------|
-| `--bg`      | `#0b0906` | Primary dark background      |
-| `--bg2`     | `#100d09` | Section alternates           |
-| `--cream`   | `#f0e6d3` | Body text                    |
-| `--muted`   | `#8a7c6e` | Secondary / supporting text  |
-| `--gold`    | `#c4a254` | Primary accent               |
-| `--gold-lt` | `#d4b87a` | Hover state for gold         |
-| `--white`   | `#faf6f0` | Headlines                    |
+- **Remove the `noindex` meta tag in `index.html`** (marked STAGING ONLY) or the site will stay hidden from Google.
+- To use a custom domain/subdomain, add it under Netlify → Domain management and create the DNS
+  record Netlify shows you.
 
-**Typography:**
-- Headlines — `Cormorant Garamond` (serif, weight 300 with italic variants)
-- Body / UI — `Raleway` (sans-serif, weight 300–600)
+## Forms
 
----
+The contact form (`ContactPage.jsx`) and newsletter box (`Footer.jsx`) POST to Netlify Forms.
+Netlify finds them via the hidden forms in `index.html` — **if you add or rename a field in the
+React form, add or rename it in `index.html` too.**
 
-## Pages
+## Content to update
 
-| Route      | Component       | Description                              |
-|------------|-----------------|------------------------------------------|
-| `/`        | `HomePage`      | Full-screen hero, Who We Are, Our Story  |
-| `/about`   | `AboutPage`     | Origin story, pillars, process, CTA      |
-| `/contact` | `ContactPage`   | Contact form with validation, stats band |
-
----
-
-## Replacing Placeholder Images
-
-All images are currently sourced from Unsplash. To replace with real Handshake Wines assets:
-
-1. Add images to `/public/images/`
-2. Replace Unsplash URLs with `/images/your-file.jpg`
-
-Recommended shots to source:
-- **Hero** — Cinematic winery / cellar / vineyard landscape (16:9, at least 1920px wide)
-- **Who We Are** — Wine being poured or handled (portrait crop)
-- **Origin** — Barrel room, winery interior, or producer portrait
-- **Story banner** — Aerial vineyard or moody cellar (used with parallax)
-- **About Hero** — Vineyard exterior, golden hour preferred
-- **Contact Hero** — Table setting, wine glasses, intimate scale
-
----
-
-## Deployment
-
-```bash
-# Build for production
-npm run build
-
-# Preview the production build locally
-npm run preview
-```
-
-The `/dist` folder is fully static and can be deployed to:
-- **Netlify** (drag-and-drop or Git integration)
-- **Vercel** (automatic via GitHub)
-- **Any static host** (S3, Cloudflare Pages, etc.)
-
----
-
-## Notes for Future Development
-
-- **Squarespace / Webflow port**: Each component maps 1:1 to a section block. The `theme.css` tokens translate directly to Squarespace's Custom CSS panel.
-- **Animation library**: Currently CSS-only. For richer scroll effects, swap the `IntersectionObserver` pattern for `framer-motion` or GSAP.
-- **Form backend**: The contact form is UI-only. Connect to Formspree, Netlify Forms, or a custom endpoint by updating `handleSubmit` in `ContactPage.jsx`.
-- **CMS integration**: Product/wine listings page can be added as `/wines` — recommend headless CMS (Contentful, Sanity) for producer-managed content.
-
----
-
-*Handshake Wines, LLC. — hello@handshakewines.com*
+- **Producers:** edit the `producers` array in `ProducersPage.jsx`.
+- **Photos:** most images in `src/images.js` are stock placeholders hotlinked from Pexels.
+  To replace one, drop the file in `public/images/` and point the entry at `/images/your-file.jpg`.
+- **Hero video:** replace `public/videos/harvest.mp4` (keep it under ~10 MB) and the poster frame.

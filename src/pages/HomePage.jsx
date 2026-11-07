@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
+import VideoHero from "../components/VideoHero.jsx";
 import styles from "./HomePage.module.css";
+import { THEME_A, VIDEOS } from "../images.js";
 
 export default function HomePage() {
-  const [imgLoaded, setImgLoaded] = useState(false);
-
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
@@ -14,38 +14,39 @@ export default function HomePage() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className={styles.hero}>
-        <img
-          src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1920&q=80"
-          className={`${styles.heroImg} ${imgLoaded ? styles.loaded : ""}`}
-          onLoad={() => setImgLoaded(true)}
-          alt="Wine cellar"
-        />
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroContent}>
-          <p className={styles.heroEyebrow}>Handshake Wines</p>
-          <h1 className={styles.heroTitle}>
-            Bottles with <em>Meaning,</em><br />Worth Discovering
-          </h1>
-          <div className={styles.heroRule} />
-          <p className={styles.heroSub}>
-            Curating rare, terroir-driven wines and placing them<br />
-            in the hands of boutique retailers who understand the story.
-          </p>
-          <Link to="/about" className="btn-outline">Discover Our Story</Link>
+      <VideoHero
+        videoId={VIDEOS.themeA}
+        poster={THEME_A.hero}
+        overlay="linear-gradient(160deg, rgba(6,4,2,0.28) 0%, rgba(6,4,2,0.52) 55%, rgba(6,4,2,0.82) 100%)"
+      >
+        {/* Centered content */}
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%" }}>
+          <div className={styles.heroContent} style={{ textAlign: "center", maxWidth: "860px", padding: "0 2rem" }}>
+            <p className={styles.heroEyebrow}>Handshake Wines</p>
+            <h1 className={styles.heroTitle}>
+              Bottles with <em>Meaning,</em><br />Worth Discovering
+            </h1>
+            <div className={styles.heroRule} />
+            <p className={styles.heroSub}>
+              Curating rare, terroir-driven wines and placing them<br />
+              in the hands of boutique retailers who understand the story.
+            </p>
+            <Link to="/theme-a/about" className="btn-outline">Discover Our Story</Link>
+          </div>
         </div>
+        {/* Scroll hint */}
         <div className={styles.scrollHint}>
           <div className={styles.scrollTick} />
           <span className={styles.scrollLabel}>Scroll</span>
         </div>
-      </section>
+      </VideoHero>
 
       {/* ── WHO WE ARE ── */}
       <section className={styles.sectionWho}>
         <div className={styles.whoGrid}>
           <div className={styles.whoImgWrap}>
             <img
-              src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=900&q=80"
+              src={THEME_A.whoWeAre}
               className={styles.whoImg}
               alt="Pouring wine"
             />
@@ -65,7 +66,7 @@ export default function HomePage() {
               retailers who crave unique, story-rich bottles — wines overlooked by traditional
               distributors yet full of soul, intention, and a sense of place.
             </p>
-            <Link to="/about" className="text-cta">Learn More About Us</Link>
+            <Link to="/theme-a/about" className="text-cta">Learn More About Us</Link>
           </div>
         </div>
       </section>
@@ -92,7 +93,7 @@ export default function HomePage() {
             and building relationships with passionate producers — every bottle we place
             carries the weight of that relationship.
           </p>
-          <Link to="/about" className="btn-outline">Read the Full Story</Link>
+          <Link to="/theme-a/about" className="btn-outline">Read the Full Story</Link>
         </div>
       </section>
 

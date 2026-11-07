@@ -47,7 +47,7 @@ export default function ProducersPage() {
       </section>
 
       {/* INTRO */}
-      <section style={{ background: "var(--c-bg3)", padding: "7rem 4rem", borderBottom: "1px solid var(--c-rule)" }}>
+      <section className="r-pad" style={{ background: "var(--c-bg3)", padding: "7rem 4rem", borderBottom: "1px solid var(--c-rule)" }}>
         <div style={{ maxWidth: "820px", margin: "0 auto" }} className="c-reveal" ref={r}>
           <p className="c-eyebrow">The Philosophy</p>
           <h2 className="c-h2">
@@ -81,7 +81,7 @@ export default function ProducersPage() {
       </section>
 
       {/* PRODUCER CARDS */}
-      <section style={{ background: "var(--c-bg)", padding: "8rem 4rem" }}>
+      <section className="r-pad" style={{ background: "var(--c-bg)", padding: "8rem 4rem" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div className="c-reveal" ref={r} style={{ marginBottom: "4rem" }}>
             <p className="c-eyebrow">The Portfolio</p>
@@ -92,9 +92,9 @@ export default function ProducersPage() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1px", background: "var(--c-rule)", border: "1px solid var(--c-rule)" }}>
+          <div className="r-cols-1" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1px", background: "var(--c-rule)", border: "1px solid var(--c-rule)" }}>
             {producers.map((p, i) => (
-              <div key={p.id} className="c-reveal" ref={r}
+              <div key={p.id} className="c-reveal r-pad-inner" ref={r}
                 style={{ background: i === 1 || i === 2 ? "var(--c-bg2)" : "var(--c-bg3)", padding: "3.5rem 3rem", minHeight: "260px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                 <div>
                   <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.69rem", fontWeight: 700, letterSpacing: "0.25em", color: "var(--c-green)", marginBottom: "1.25rem" }}>
@@ -117,8 +117,8 @@ export default function ProducersPage() {
       </section>
 
       {/* PITCH TO PRODUCERS */}
-      <section style={{ position: "relative", padding: "9rem 4rem", overflow: "hidden", textAlign: "center" }}>
-        <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${THEME_C.values})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }} />
+      <section className="r-pad" style={{ position: "relative", padding: "9rem 4rem", overflow: "hidden", textAlign: "center" }}>
+        <div className="r-parallax" style={{ position: "absolute", inset: 0, backgroundImage: `url(${THEME_C.values})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(26,26,26,0.87)" }} />
         <div style={{ position: "relative", maxWidth: "760px", margin: "0 auto" }} className="c-reveal" ref={r}>
           <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.69rem", fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase", color: "#c8d4a0", marginBottom: "1.5rem" }}>

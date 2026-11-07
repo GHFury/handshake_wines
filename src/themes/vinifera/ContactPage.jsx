@@ -85,8 +85,8 @@ export default function ViniferaContact() {
         </div>
       </section>
 
-      <section style={{ background: "var(--c-bg3)", padding: "8rem 4rem", borderBottom: "1px solid var(--c-rule)" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1.65fr", gap: "8rem", alignItems: "start" }}>
+      <section className="r-pad" style={{ background: "var(--c-bg3)", padding: "8rem 4rem", borderBottom: "1px solid var(--c-rule)" }}>
+        <div className="r-cols-1 r-gap-3" style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1.65fr", gap: "8rem", alignItems: "start" }}>
 
           {/* Info */}
           <div className="c-reveal" ref={r}>
@@ -126,11 +126,11 @@ export default function ViniferaContact() {
                 <div style={{ display: "none" }} aria-hidden="true">
                   <label>Don't fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" value={botField} onChange={(e) => setBotField(e.target.value)} /></label>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", marginBottom: "1px" }}>
+                <div className="r-cols-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", marginBottom: "1px" }}>
                   <div style={fieldBase("firstName")}><label style={labelBase(form.firstName)}>First Name *</label><input style={inputBase} type="text" value={form.firstName} onChange={upd("firstName")} onBlur={blr("firstName")} /></div>
                   <div style={fieldBase("lastName")}><label style={labelBase(form.lastName)}>Last Name *</label><input style={inputBase} type="text" value={form.lastName} onChange={upd("lastName")} onBlur={blr("lastName")} /></div>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", marginBottom: "1px" }}>
+                <div className="r-cols-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", marginBottom: "1px" }}>
                   <div style={fieldBase("email")}><label style={labelBase(form.email)}>Email Address *</label><input style={inputBase} type="email" value={form.email} onChange={upd("email")} onBlur={blr("email")} /></div>
                   <div style={fieldBase("company")}><label style={labelBase(form.company)}>Winery / Business</label><input style={inputBase} type="text" value={form.company} onChange={upd("company")} /></div>
                 </div>
@@ -177,8 +177,8 @@ export default function ViniferaContact() {
       </section>
 
       {/* Stats band */}
-      <div style={{ background: "var(--c-bg2)", padding: "5rem 4rem", borderBottom: "1px solid var(--c-rule)", display: "flex", justifyContent: "center" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "4rem", flexWrap: "wrap", justifyContent: "center", maxWidth: "900px", textAlign: "center" }}>
+      <div className="r-pad" style={{ background: "var(--c-bg2)", padding: "5rem 4rem", borderBottom: "1px solid var(--c-rule)", display: "flex", justifyContent: "center" }}>
+        <div className="r-gap-3" style={{ display: "flex", alignItems: "center", gap: "4rem", flexWrap: "wrap", justifyContent: "center", maxWidth: "900px", textAlign: "center" }}>
           {[{ stat: "Trust", label: "The Foundation of Every Deal" }, { stat: "Story", label: "Behind Every Bottle We Place" }, { stat: "Craft", label: "The Standard We Hold" }].map((item) => (
             <div key={item.stat} style={{ flex: "1", minWidth: "180px" }}>
               <div style={{ fontFamily: "var(--c-font-serif)", fontSize: "2.75rem", fontWeight: 400, color: "var(--c-green)", lineHeight: 1, marginBottom: "0.4rem" }}>{item.stat}</div>

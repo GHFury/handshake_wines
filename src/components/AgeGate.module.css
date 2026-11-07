@@ -127,3 +127,10 @@
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+@media (max-width: 500px) {
+  .logo { font-size: 1.3rem; letter-spacing: 0.26em; }
+  .question { font-size: 1.3rem; }
+  .btns { flex-direction: column; align-items: center; }
+  .btn { width: 100%; max-width: 260px; }
+}

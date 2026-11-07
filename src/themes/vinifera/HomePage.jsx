@@ -30,7 +30,7 @@ export default function ViniferaHome() {
         overlay="linear-gradient(to bottom, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0) 18%), linear-gradient(to top, rgba(245,240,232,0.92) 0%, rgba(245,240,232,0.35) 45%, rgba(245,240,232,0.0) 100%)"
         height="100vh"
       >
-        <div style={{ position: "absolute", bottom: 0, left: 0, padding: "0 4rem 5rem", maxWidth: "760px" }}>
+        <div className="r-hero-copy" style={{ position: "absolute", bottom: 0, left: 0, padding: "0 4rem 5rem", maxWidth: "760px" }}>
           <p className="c-hero-eyebrow-light">Handshake Wines</p>
           <h1 className="c-hero-h1-light">
             Bottles with <em>Meaning,</em><br />Worth Discovering
@@ -47,7 +47,7 @@ export default function ViniferaHome() {
       </VideoHero>
 
       {/* ── INTRO STRIP ── */}
-      <div style={{ background: "var(--c-bg2)", borderTop: "1px solid var(--c-rule)", borderBottom: "1px solid var(--c-rule)", padding: "2.75rem 4rem" }}>
+      <div className="r-pad-sm" style={{ background: "var(--c-bg2)", borderTop: "1px solid var(--c-rule)", borderBottom: "1px solid var(--c-rule)", padding: "2.75rem 4rem" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1.5rem" }}>
           {[
             "Boutique Family-Owned Wineries",
@@ -64,12 +64,12 @@ export default function ViniferaHome() {
       </div>
 
       {/* ── WHO WE ARE ── */}
-      <section style={{ background: "var(--c-bg3)", padding: "9rem 4rem" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "7rem", alignItems: "center" }}>
+      <section className="r-pad" style={{ background: "var(--c-bg3)", padding: "9rem 4rem" }}>
+        <div className="r-cols-1 r-gap-3" style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "7rem", alignItems: "center" }}>
           <div className="c-reveal" ref={r} style={{ position: "relative" }}>
             <div style={{ position: "absolute", top: "-1.5rem", left: "-1.5rem", width: "70px", height: "70px", borderTop: "1px solid var(--c-green)", borderLeft: "1px solid var(--c-green)", pointerEvents: "none" }} />
             <div style={{ position: "absolute", bottom: "-1.5rem", right: "-1.5rem", width: "70px", height: "70px", borderBottom: "1px solid var(--c-green)", borderRight: "1px solid var(--c-green)", pointerEvents: "none" }} />
-            <img src={THEME_C.tasting} alt="Wine tasting" style={{ width: "100%", height: "580px", objectFit: "cover", display: "block" }} />
+            <img className="r-img-h" src={THEME_C.tasting} alt="Wine tasting" style={{ width: "100%", height: "580px", objectFit: "cover", display: "block" }} />
           </div>
           <div className="c-reveal" ref={r}>
             <p className="c-eyebrow">Who We Are</p>
@@ -90,7 +90,7 @@ export default function ViniferaHome() {
       </section>
 
       {/* ── PRODUCERS TEASER ── */}
-      <section style={{ background: "var(--c-bg2)", padding: "8rem 4rem", borderTop: "1px solid var(--c-rule)", borderBottom: "1px solid var(--c-rule)" }}>
+      <section className="r-pad" style={{ background: "var(--c-bg2)", padding: "8rem 4rem", borderTop: "1px solid var(--c-rule)", borderBottom: "1px solid var(--c-rule)" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto", textAlign: "center" }} className="c-reveal" ref={r}>
           <p className="c-eyebrow">Straight from the Source</p>
           <h2 className="c-h2" style={{ maxWidth: "600px", margin: "0 auto 1rem" }}>
@@ -106,8 +106,8 @@ export default function ViniferaHome() {
       </section>
 
       {/* ── STORY QUOTE ── */}
-      <section style={{ position: "relative", padding: "10rem 4rem", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${THEME_C.estate})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }} />
+      <section className="r-pad" style={{ position: "relative", padding: "10rem 4rem", overflow: "hidden" }}>
+        <div className="r-parallax" style={{ position: "absolute", inset: 0, backgroundImage: `url(${THEME_C.estate})`, backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }} />
         <div style={{ position: "absolute", inset: 0, background: "rgba(26,26,26,0.85)" }} />
         <div style={{ position: "relative", maxWidth: "720px", margin: "0 auto", textAlign: "center" }} className="c-reveal" ref={r}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.25rem", marginBottom: "2.5rem" }}>

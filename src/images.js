@@ -4,7 +4,7 @@ const px = (id, w = 1920) => `${P}/${id}/pexels-photo-${id}.jpeg?${POPT}&w=${w}`
 
 export const THEME_C = {
   hero:          px(8431471),
-  grapes:        px(45209,    900),
+  grapes:        px(3171158,  900),   // was 45209 (stopped loading) — pouring wine, loaded fine earlier
   tasting:       px(15880509, 900),
   estate:        px(19061857, 900),
   aboutHero:     px(31447951),
@@ -19,8 +19,7 @@ export const TEAM = {
   thomas: px(30767572, 600),
 };
 
-// Hero video — grapes on vine (Coverr, Pexels 853754)
-// Replace with real harvest footage when available from a partner winery shoot
+// Hero video — grapes on vine (Coverr, Pexels 853754). Homepage now uses /videos/harvest.mp4 instead.
 export const VIDEOS = {
   themeC: 853754,
 };

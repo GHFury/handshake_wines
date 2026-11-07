@@ -37,20 +37,20 @@ export default function ViniferaTeam() {
 
       {/* THOMAS — full-width feature profile */}
       <section style={{ background: "var(--c-bg3)", padding: "0" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "480px 1fr", minHeight: "620px" }} className="c-reveal" ref={r}>
+        <div className="c-reveal r-cols-1" style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "480px 1fr", minHeight: "620px" }} ref={r}>
 
           {/* Photo */}
-          <div style={{ position: "relative", overflow: "hidden" }}>
+          <div className="r-team-photo" style={{ position: "relative", overflow: "hidden" }}>
             <img src="/images/thomas.jpg" alt="Thomas Bebbington"
               style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%" }} />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, transparent 80%, var(--c-bg3))" }} />
+            <div className="r-hide-m" style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, transparent 80%, var(--c-bg3))" }} />
             {/* Corner accents */}
             <div style={{ position: "absolute", top: "1.5rem", left: "1.5rem", width: "50px", height: "50px", borderTop: "1px solid var(--c-green)", borderLeft: "1px solid var(--c-green)", pointerEvents: "none" }} />
             <div style={{ position: "absolute", bottom: "1.5rem", right: "1.5rem", width: "50px", height: "50px", borderBottom: "1px solid var(--c-green)", borderRight: "1px solid var(--c-green)", pointerEvents: "none" }} />
           </div>
 
           {/* Copy */}
-          <div style={{ padding: "5rem 5.5rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <div className="r-pad-inner" style={{ padding: "5rem 5.5rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <h2 style={{ fontFamily: "var(--c-font-serif)", fontSize: "clamp(2.2rem, 3vw, 3.2rem)", fontWeight: 400, color: "var(--c-dark)", marginBottom: "0.4rem" }}>
               Thomas Bebbington
             </h2>
@@ -85,7 +85,7 @@ export default function ViniferaTeam() {
       </section>
 
       {/* THE PHILOSOPHY */}
-      <section style={{ background: "var(--c-bg2)", padding: "8rem 4rem", borderTop: "1px solid var(--c-rule)" }}>
+      <section className="r-pad" style={{ background: "var(--c-bg2)", padding: "8rem 4rem", borderTop: "1px solid var(--c-rule)" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }} className="c-reveal" ref={r}>
           <p className="c-eyebrow">The Philosophy</p>
           <h2 className="c-h2">"Real craft<br />without <em>compromise.</em>"</h2>
@@ -103,7 +103,7 @@ export default function ViniferaTeam() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: "var(--c-bg3)", padding: "6rem 4rem", textAlign: "center", borderTop: "1px solid var(--c-rule)" }} className="c-reveal" ref={r}>
+      <section className="c-reveal r-pad" style={{ background: "var(--c-bg3)", padding: "6rem 4rem", textAlign: "center", borderTop: "1px solid var(--c-rule)" }} ref={r}>
         <p className="c-eyebrow">Get In Touch</p>
         <h2 className="c-h2" style={{ marginBottom: "1rem" }}>Ready to Start a <em>Conversation?</em></h2>
         <p className="c-p" style={{ maxWidth: "440px", margin: "0 auto 2.5rem" }}>

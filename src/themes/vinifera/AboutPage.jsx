@@ -55,7 +55,7 @@ export default function ViniferaAbout() {
             Handshake Wines is a<br /><em>Specialty Wine Distributor</em>
           </h2>
           <div style={{ width: "48px", height: "1px", background: "#c8d4a0", margin: "0 auto 1.75rem" }} />
-          <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.95rem", fontWeight: 300, lineHeight: 1.9, color: "rgba(250,247,242,0.8)", maxWidth: "640px", margin: "0 auto" }}>
+          <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.95rem", fontWeight: 400, lineHeight: 1.9, color: "rgba(250,247,242,0.8)", maxWidth: "640px", margin: "0 auto" }}>
             We partner with boutique, family-owned Northern California wineries producing under 2,000 cases
             annually, and place their wines with the retailers and restaurants who will champion them.
           </p>

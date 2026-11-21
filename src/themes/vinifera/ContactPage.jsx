@@ -100,11 +100,11 @@ export default function ViniferaContact() {
             <p className="c-eyebrow" style={{ marginBottom: "1rem" }}>Direct Contact</p>
             {[
               { icon: "✉", content: <a href={`mailto:${EMAIL}`} style={{ color: "var(--c-green)", textDecoration: "none", wordBreak: "break-word" }}>{EMAIL}</a> },
-              { icon: "◎", content: "Handshake Wines, LLC. — Northern California" },
+              { icon: "◎", content: "Handshake Wines, LLC. — Napa Valley, California" },
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", marginBottom: "1rem" }}>
                 <span style={{ fontFamily: "var(--c-font-serif)", fontSize: "0.9rem", color: "var(--c-green)", minWidth: "16px" }}>{item.icon}</span>
-                <span style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.94rem", fontWeight: 300, color: "var(--c-muted)", lineHeight: 1.65 }}>{item.content}</span>
+                <span style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.94rem", fontWeight: 400, color: "var(--c-muted)", lineHeight: 1.65 }}>{item.content}</span>
               </div>
             ))}
             <div style={{ width: "40px", height: "1px", background: "var(--c-rule)", margin: "2.5rem 0" }} />
@@ -112,7 +112,7 @@ export default function ViniferaContact() {
             {whoWeServe.map((w) => (
               <div key={w} style={{ display: "flex", gap: "0.85rem", alignItems: "center", marginBottom: "0.65rem" }}>
                 <div style={{ width: "4px", height: "4px", background: "var(--c-green)", flexShrink: 0 }} />
-                <span style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.94rem", fontWeight: 300, color: "var(--c-muted)" }}>{w}</span>
+                <span style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.94rem", fontWeight: 400, color: "var(--c-muted)" }}>{w}</span>
               </div>
             ))}
           </div>
@@ -169,7 +169,7 @@ export default function ViniferaContact() {
                   <div style={{ width: "40px", height: "1px", background: "var(--c-rule)" }} />
                 </div>
                 <p style={{ fontFamily: "var(--c-font-serif)", fontSize: "2rem", fontStyle: "italic", color: "var(--c-dark)", marginBottom: "0.85rem" }}>Thank you, {form.firstName}.</p>
-                <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.94rem", fontWeight: 300, color: "var(--c-muted)", lineHeight: 1.9 }}>Thomas will be in touch shortly.<br />Every great partnership begins with exactly this kind of introduction.</p>
+                <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.94rem", fontWeight: 400, color: "var(--c-muted)", lineHeight: 1.9 }}>Thomas will be in touch shortly.<br />Every great partnership begins with exactly this kind of introduction.</p>
               </div>
             )}
           </div>

@@ -36,7 +36,7 @@ export default function ViniferaHome() {
             Bottles with <em>Meaning,</em><br />Worth Discovering
           </h1>
           <div className="c-hero-rule-light" />
-          <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "1.02rem", fontWeight: 300, color: "var(--c-mid)", lineHeight: 1.85, marginTop: "1.5rem", marginBottom: "2.5rem", maxWidth: "520px" }}>
+          <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "1.02rem", fontWeight: 400, color: "var(--c-mid)", lineHeight: 1.85, marginTop: "1.5rem", marginBottom: "2.5rem", maxWidth: "520px" }}>
             Partnering with boutique family-owned wineries that produce under 2,000 cases annually —
             placing their wines in the hands of retailers and restaurants who understand the story.
           </p>

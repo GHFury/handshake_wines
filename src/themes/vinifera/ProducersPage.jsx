@@ -105,7 +105,7 @@ export default function ProducersPage() {
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div className="c-reveal" ref={r} style={{ marginBottom: "4rem" }}>
             <p className="c-eyebrow">The Portfolio</p>
-            <h2 className="c-h2">Our <em>Winery Partners</em></h2>
+            <h2 className="c-h2">Featured <em>Winery Partners</em></h2>
             <p className="c-p" style={{ maxWidth: "540px" }}>
               Small, family-run producers from across Northern California, in Thomas’s own words.
             </p>
@@ -148,7 +148,7 @@ export default function ProducersPage() {
             "We believe your story deserves to be heard — by the retailers and restaurants who will become your best advocates."
           </p>
           <div style={{ width: "48px", height: "1px", background: "#c8d4a0", margin: "0 auto 2.5rem" }} />
-          <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.97rem", fontWeight: 300, color: "rgba(255,255,255,0.55)", lineHeight: 1.85, maxWidth: "560px", margin: "0 auto 2.5rem" }}>
+          <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.97rem", fontWeight: 400, color: "rgba(255,255,255,0.85)", lineHeight: 1.85, maxWidth: "560px", margin: "0 auto 2.5rem" }}>
             Are you a family-owned Northern California winery producing under 2,000 cases annually?
             We'd love to hear about your operation.
           </p>

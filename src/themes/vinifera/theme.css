@@ -9,7 +9,7 @@ html { scroll-behavior: smooth; overflow-x: hidden; }
   --c-bg3:      #faf7f2;
   --c-dark:     #1a1a1a;
   --c-mid:      #4a4235;
-  --c-muted:    #8a7e6e;
+  --c-muted:    #4a4235;
   --c-green:    #2d5a27;
   --c-green-lt: #3a7333;
   --c-amber:    #8b6914;
@@ -41,7 +41,7 @@ body { background: var(--c-bg); color: var(--c-dark); font-family: var(--c-font-
 }
 .c-h2 em { font-style: italic; }
 .c-p {
-  font-family: var(--c-font-sans); font-size: 0.99rem; font-weight: 300;
+  font-family: var(--c-font-sans); font-size: 0.99rem; font-weight: 400;
   line-height: 1.9; color: var(--c-muted); margin-bottom: 1rem;
 }
 .c-text-cta {
@@ -141,10 +141,10 @@ body { background: var(--c-bg); color: var(--c-dark); font-family: var(--c-font-
   filter: invert(1) brightness(1.1);
   margin-bottom: 0.75rem; display: block;
 }
-.c-f-tagline { font-family: var(--c-font-serif); font-style: italic; font-size: 1.05rem; color: rgba(255,255,255,0.45); line-height: 1.65; }
+.c-f-tagline { font-family: var(--c-font-serif); font-style: italic; font-size: 1.05rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
 .c-f-col-title { font-family: var(--c-font-sans); font-size: 0.69rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--c-green-lt); margin-bottom: 1.5rem; }
 .c-f-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-.c-f-links a { font-family: var(--c-font-sans); font-size: 0.89rem; font-weight: 300; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
+.c-f-links a { font-family: var(--c-font-sans); font-size: 0.89rem; font-weight: 400; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s; }
 .c-f-links a:hover { color: var(--c-green-lt); }
 .c-nl-form { display: flex; }
 .c-nl-input {
@@ -152,7 +152,7 @@ body { background: var(--c-bg); color: var(--c-dark); font-family: var(--c-font-
   border: 1px solid rgba(255,255,255,0.12); border-right: none;
   color: #faf7f2; font-family: var(--c-font-sans); font-size: 0.84rem; outline: none;
 }
-.c-nl-input::placeholder { color: rgba(255,255,255,0.35); }
+.c-nl-input::placeholder { color: rgba(255,255,255,0.65); }
 .c-nl-input:focus { border-color: rgba(45,90,39,0.6); }
 .c-nl-btn {
   padding: 0.8rem 1.2rem; background: var(--c-green); border: none;
@@ -162,8 +162,8 @@ body { background: var(--c-bg); color: var(--c-dark); font-family: var(--c-font-
 .c-nl-btn:hover { background: var(--c-green-lt); }
 .c-nl-thanks { font-family: var(--c-font-serif); font-style: italic; color: var(--c-green-lt); font-size: 1.05rem; }
 .c-footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-.c-f-copy { font-family: var(--c-font-sans); font-size: 0.74rem; font-weight: 300; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; }
-.c-f-email { font-family: var(--c-font-sans); font-size: 0.74rem; color: rgba(255,255,255,0.4); }
+.c-f-copy { font-family: var(--c-font-sans); font-size: 0.74rem; font-weight: 400; color: rgba(255,255,255,0.65); letter-spacing: 0.08em; }
+.c-f-email { font-family: var(--c-font-sans); font-size: 0.74rem; color: rgba(255,255,255,0.75); }
 .c-f-email a { color: var(--c-green-lt); text-decoration: none; transition: color 0.3s; }
 .c-f-email a:hover { color: #4a9040; }
 

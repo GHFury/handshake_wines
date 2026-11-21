@@ -6,12 +6,32 @@ import CNavbar from "./Navbar.jsx";
 import CFooter from "./Footer.jsx";
 
 // ── PRODUCERS ─────────────────────────────────────────────────────
-// Add region / varietals / story text per winery as Thomas completes interviews.
+// Bios provided by Thomas. Edit the text here to refine wording.
 const producers = [
-  { id: 1, winery: "Zuidema Wine Co." },
-  { id: 2, winery: "Witching Stick Wines" },
-  { id: 3, winery: "Bee Hunter Wine" },
-  { id: 4, winery: "Shandel’s Oppenlander Vineyard" },
+  {
+    id: 1, winery: "Zuidema Wine Co.", region: "Rutherford & Coombsville",
+    bio: [
+      "Winemaker Rudy Zuidema and partner Amy Zuidema cultivate some of the best Grenache you can find from the historic McGah Vineyard in Rutherford. Just a few barrels are produced each year and it never disappoints. I have yet to find a Grenache more memorable than this one in California. Superb. Rudy leads several key projects in Napa and especially in Coombsville where his talent as a winemaker is well known.",
+    ],
+  },
+  {
+    id: 2, winery: "Witching Stick Wines", region: "Anderson Valley",
+    bio: [
+      "If you are in the Anderson Valley, and you know where to look, you can find acclaimed winemaker Van Williamson and his wife Anne making some of the best wines around. Their single-vineyard Pinot Noirs caught our attention but all of the wines are very good. Van believes in minimal-intervention and is very selective when choosing oak barrels allowing the quality and character of the fruit to shine in every bottle.",
+    ],
+  },
+  {
+    id: 3, winery: "Shandel’s Oppenlander Vineyard", region: "Mendocino Coast",
+    bio: [
+      "Tucked just six miles from the Mendocino coastline, this remarkable vineyard has been cared for by the same family for eight generations, since the 1860s. Its Pinot Noir is fresh and vibrant, with notes of raspberry and rose petals. In this quiet corner of the region, there are more bears than people. When the grapes ripen, they come to feast and the vineyard manager must protect the crop. The wine is produced by the celebrated winemaker, Phil Baxter. The family is also known in the region for their world-class jams.",
+    ],
+  },
+  {
+    id: 4, winery: "Varozza Vineyards", region: "St. Helena AVA, Napa Valley",
+    bio: [
+      "Jack and his wife, Dianna Varozza, continue a family legacy that began in 1913, when his grandfather purchased the property. First bonded in 1885, the winery is among Napa Valley’s earliest. Located in the St. Helena AVA, all the grapes are grown on their beautiful estate. Even with famed neighbors close by, the wines stand out. The Cabernet Franc carries notes of unctuous blackberries, pomegranate, plums and dark chocolate. It has power and precision, wrapped in tannins as soft as velvet. Only a few barrels are produced each year, so I’m grateful for anything I can get.",
+    ],
+  },
 ];
 
 export default function ProducersPage() {
@@ -87,28 +107,28 @@ export default function ProducersPage() {
             <p className="c-eyebrow">The Portfolio</p>
             <h2 className="c-h2">Our <em>Winery Partners</em></h2>
             <p className="c-p" style={{ maxWidth: "540px" }}>
-              Interviews are being conducted and will be published as they're completed.
-              Check back regularly as new producer stories are added.
+              Small, family-run producers from across Northern California, in Thomas’s own words.
             </p>
           </div>
 
           <div className="r-cols-1" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1px", background: "var(--c-rule)", border: "1px solid var(--c-rule)" }}>
             {producers.map((p, i) => (
               <div key={p.id} className="c-reveal r-pad-inner" ref={r}
-                style={{ background: i === 1 || i === 2 ? "var(--c-bg2)" : "var(--c-bg3)", padding: "3.5rem 3rem", minHeight: "260px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                style={{ background: i === 1 || i === 2 ? "var(--c-bg2)" : "var(--c-bg3)", padding: "3.5rem 3rem", display: "flex", flexDirection: "column" }}>
                 <div>
                   <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.69rem", fontWeight: 700, letterSpacing: "0.25em", color: "var(--c-green)", marginBottom: "1.25rem" }}>
                     {String(p.id).padStart(2, "0")}
                   </p>
-                  <h3 style={{ fontFamily: "var(--c-font-serif)", fontSize: "1.9rem", fontWeight: 400, lineHeight: 1.25, color: "var(--c-dark)", marginBottom: "1.25rem" }}>
+                  <h3 style={{ fontFamily: "var(--c-font-serif)", fontSize: "1.9rem", fontWeight: 400, lineHeight: 1.25, color: "var(--c-dark)", marginBottom: "1rem" }}>
                     {p.winery}
                   </h3>
-                  <div style={{ width: "36px", height: "1px", background: "var(--c-green)" }} />
-                </div>
-                <div style={{ marginTop: "2rem", display: "inline-block", background: "rgba(45,90,39,0.08)", border: "1px solid rgba(45,90,39,0.2)", padding: "0.4rem 0.9rem", width: "fit-content" }}>
-                  <span style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.64rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--c-green)" }}>
-                    Producer story coming soon
-                  </span>
+                  <div style={{ width: "36px", height: "1px", background: "var(--c-green)", marginBottom: "1.25rem" }} />
+                  <p style={{ fontFamily: "var(--c-font-sans)", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--c-green)", marginBottom: "1.25rem" }}>
+                    {p.region}
+                  </p>
+                  {p.bio.map((t, k) => (
+                    <p key={k} className="c-p" style={{ marginBottom: "0.9rem" }}>{t}</p>
+                  ))}
                 </div>
               </div>
             ))}
